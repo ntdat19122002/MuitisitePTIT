@@ -17,9 +17,9 @@ import Doctor from '../routes/Doctor';
 import VerifyEmail from './Patient/VerifyEmail';
 import DetailSpecialty from './Patient/Specialty/DetailSpecialty';
 import DetailClinic from './Patient/Clinic/DetailClinic';
-import ManageInfo from './Doctor/ManageInfo';
-import ManageSchedule from './Doctor/ManageSchedule';
-import ManagePatient from './Doctor/ManagePatient';
+import ManageInfo from './HomePage/Doctor/ManageInfo';
+import ManageSchedule from './HomePage/Doctor/ManageSchedule';
+import ManagePatient from './HomePage/Doctor/ManagePatient';
 
 
 

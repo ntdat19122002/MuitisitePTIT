@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import './TableManageUser.scss';
-import * as actions from "../../store/actions";
+import * as actions from "../../../store/actions";
 import MarkdownIt from 'markdown-it'
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
 import './ManageInfo.scss';
 import Select from 'react-select';
-import { CRUD_ACTIONS, LANGUAGES } from '../../utils';
-import { getDetailInforDoctor } from '../../services/userService';
-import HomeHeader from '../HomePage/HomeHeader';
+import { CRUD_ACTIONS, LANGUAGES } from '../../../utils';
+import { getDetailInforDoctor } from '../../../services/userService';
+import HomeHeader from '../HomeHeader';
 
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
@@ -162,7 +162,7 @@ class ManageInfo extends Component {
             contentHTML: this.state.contentHTML,
             contentMarkdown: this.state.contentMarkdown,
             description: this.state.description,
-            doctorId: this.state.selectedOption.value,
+            doctorId: this.props.userInfo.user.id,
             action: hasOldData === true ? CRUD_ACTIONS.EDIT : CRUD_ACTIONS.CREATE,
 
             selectedPrice: this.state.selectedPrice.value,
@@ -269,6 +269,7 @@ class ManageInfo extends Component {
     }
 
     render() {
+        const {userInfo} = this.props
         let { hasOldData } = this.state;
         return (
             <>
@@ -281,15 +282,10 @@ class ManageInfo extends Component {
                     </div>
                     <div className='more-infor'>
                         <div className='content-left form-group'>
-                            <label>
-                                <FormattedMessage id="admin.manage-doctor.select-doctor" />
-                            </label>
-                            <Select
-                                value={this.state.selectedOption}
-                                onChange={this.handleChangeSelect}
-                                options={this.state.listDoctors}
-                                placeholder={<FormattedMessage id="admin.manage-doctor.select-doctor" />}
-                            />
+                            <span className="welcome">
+                                <FormattedMessage id="homeheader.welcome" />
+                                {userInfo && userInfo.user.firstName ? userInfo.user.firstName : ''} !
+                            </span>
                         </div>
                         <div className='content-right'>
                             <label><FormattedMessage id="admin.manage-doctor.intro" /></label>
@@ -407,6 +403,7 @@ const mapStateToProps = state => {
     return {
         language: state.app.language,
         allDoctors: state.admin.allDoctors,
+        userInfo: state.user.userInfo,
         allRequiredDoctorInfor: state.admin.allRequiredDoctorInfor
     };
 };
