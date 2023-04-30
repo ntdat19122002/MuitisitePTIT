@@ -27,7 +27,7 @@ class UserManage extends Component {
 
 
     getAllUsersFromReact = async () => {
-        let token = this.props.userInfo.token;
+        let token = 'ALL';
         // this.setState({
         //     arrUsers: user
         // })

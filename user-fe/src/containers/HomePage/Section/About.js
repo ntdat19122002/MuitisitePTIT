@@ -20,7 +20,7 @@ class About extends Component {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
             ></iframe> */}
-            <iframe width="100%" height="400px" src="https://www.youtube.com/embed/L2IBPnN8YYk" title="220515 이다혜 치어리더 공연 &quot;ElEVEN(IVE)&quot; @기아타이거즈 _직캠 fancam /4K60p" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="100%" height="400px" src="https://www.youtube.com/embed/L2IBPnN8YYk" title="220515 이다혜 치어리더 공연 &quot;ElEVEN(IVE)&quot; @기아타이거즈 _직캠 fancam /4K60p" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
           </div>
           <div className="content-right">
             <p>

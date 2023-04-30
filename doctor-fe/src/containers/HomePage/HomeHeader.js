@@ -4,7 +4,7 @@ import './HomeHeader.scss'
 import { FormattedMessage } from 'react-intl'
 import logo from '../../assets/logo.svg'
 import { LANGUAGES } from '../../utils';
-import { changeLanguageApp } from '../../store/actions'
+import { changeLanguageApp,processLogout } from '../../store/actions'
 import { withRouter } from 'react-router';
 
 class HomeHeader extends Component {
@@ -12,6 +12,11 @@ class HomeHeader extends Component {
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
     }
+    
+    processLogout = () => {
+        this.props.processLogoutRedux()
+    }
+
     returnToHome = () => {
         if (this.props.history) {
             this.props.history.push('/home');
@@ -26,7 +31,7 @@ class HomeHeader extends Component {
                 <div className="home-header-container">
                     <div className="home-header-content">
                         <div className="left-content">
-                            <i class="fas fa-bars"></i>
+                            <i className="fas fa-bars"></i>
                             {/* <div className="header-logo"></div> */}
                             <img className="header-logo" src={logo} onClick={() => this.returnToHome()} />
                         </div>
@@ -53,6 +58,10 @@ class HomeHeader extends Component {
                             <div className="support"><i className="fas fa-question-circle"></i><FormattedMessage id="homeheader.support" /></div>
                             <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}><span onClick={() => this.changeLanguage(LANGUAGES.VI)}>VN</span></div>
                             <div className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}><span onClick={() => this.changeLanguage(LANGUAGES.EN)}>EN</span></div>
+                        </div>
+                        {/* nut logout */}
+                        <div className="btn btn-logout"  onClick={() => this.processLogout()} title="Log out">
+                            <i className="fas fa-sign-out-alt"></i>
                         </div>
                     </div>
 
@@ -87,7 +96,7 @@ class HomeHeader extends Component {
                                     <div className="text-child"><FormattedMessage id="banner.child3" /></div>
                                 </div>
                                 <div className="options-child">
-                                    <div className="icon-child"><i class="fas fa-flask"></i></div>
+                                    <div className="icon-child"><i className="fas fa-flask"></i></div>
                                     <div className="text-child"><FormattedMessage id="banner.child4" /></div>
                                 </div>
                                 <div className="options-child">
@@ -120,8 +129,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        processLogoutRedux: () => dispatch(processLogout()),
         changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language))
     };
 };
-
+        
 export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
