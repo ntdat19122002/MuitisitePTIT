@@ -8,11 +8,16 @@ import { changeLanguageApp,processLogout } from '../../store/actions'
 import { withRouter } from 'react-router';
 
 class HomeHeader extends Component {
+    handleViewHome = () => {
+        if (this.props.history) {
+            this.props.history.push(`/home`);
+        }
+    }
 
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
     }
-    
+
     processLogout = () => {
         this.props.processLogoutRedux()
     }
@@ -24,13 +29,15 @@ class HomeHeader extends Component {
     }
 
     render() {
+        const {userInfo} = this.props
+
         let language = this.props.language
         console.log('check props: ', this.props)
         return (
             <React.Fragment>
                 <div className="home-header-container">
                     <div className="home-header-content">
-                        <div className="left-content">
+                        <div onClick={()=> this.handleViewHome()} className="left-content">
                             <i className="fas fa-bars"></i>
                             {/* <div className="header-logo"></div> */}
                             <img className="header-logo" src={logo} onClick={() => this.returnToHome()} />
@@ -55,6 +62,10 @@ class HomeHeader extends Component {
                             </div>
                         </div>
                         <div className="right-content">
+                            <span className="welcome">
+                                <FormattedMessage id="homeheader.welcome" />
+                                {userInfo && userInfo.user.firstName ? userInfo.user.firstName : ''} !
+                            </span>
                             <div className="support"><i className="fas fa-question-circle"></i><FormattedMessage id="homeheader.support" /></div>
                             <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}><span onClick={() => this.changeLanguage(LANGUAGES.VI)}>VN</span></div>
                             <div className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}><span onClick={() => this.changeLanguage(LANGUAGES.EN)}>EN</span></div>
@@ -134,4 +145,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
         
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader));

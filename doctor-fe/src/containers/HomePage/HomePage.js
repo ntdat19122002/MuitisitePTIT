@@ -11,6 +11,7 @@ import HomeFooter from "./HomeFooter";
 import "./HomePage.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import DoctorFunction from './Section/DoctorFunction';
 
 class HomePage extends Component {
     
@@ -26,11 +27,11 @@ class HomePage extends Component {
         return (
             <div>
                 <HomeHeader isShowBanner = {true} />
-                {/* <HomeHeader /> */}
                 <Specialty settings={settings} />
                 <MedicalFacility settings={settings} />
                 <OutStandingDoctor settings={settings} />
                 <HandBook settings={settings} />
+                <DoctorFunction/>
                 <About/>
                 <HomeFooter/>
             </div>

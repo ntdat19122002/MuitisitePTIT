@@ -49,7 +49,9 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-
+            .welcome{
+                margin-right: 10px;
+            }
             .support{
                 padding-right: 50px;
                 display: flex;
