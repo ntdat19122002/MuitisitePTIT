@@ -95,6 +95,7 @@ class BookingModal extends Component {
         let date = new Date(this.state.birthday).getTime();
         let timestring = this.buildTimeBooking(this.props.dataTime);
         let doctorName = this.buildDoctorName(this.props.dataTime);
+
         let res = await postPatientBookAppointment({
             fullName: this.state.fullName,
             phoneNumber: this.state.phoneNumber,

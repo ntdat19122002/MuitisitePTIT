@@ -1,9 +1,32 @@
 import axios from '../axios'
 
+
+const handleLoginApi = (email, password) => {
+    return axios.post('api/login', { email, password });
+}
+const handleLogoutApi = () => {
+    return axios.post('api/logout');
+}
+// const getAllUsers = (token) => {
+//     return axios.get('/api/users', {
+//         headers: { Authorization: `Bearer ${token}` },
+//         // params: {
+//         //     id: inputId
+//         // }
+//     });
+// }
+
+
 const getAllUsers = (inputId) => {
     return axios.get(`/api/users?id=${inputId}`);
 }
 
+
+// const createNewUserService = (data, token) => {
+//     return axios.post('/api/users', data, {
+//         headers: { Authorization: `Bearer ${token}` }
+//     });
+// }
 const createNewUserService = (data) => {
     return axios.post('/api/users', data);
 }
@@ -80,5 +103,5 @@ const postSendRemedy = (data) => {
     return axios.post('/api/send-remedy', data)
 }
 
-export { postSendRemedy, getAllPatientForDoctor, getDetailClinicById, getAllClinic, creatNewClinic, getDetailSpecialtyById, getAllSpecialty, creatNewSpecialty, postVerifyBookAppointment, postPatientBookAppointment, getProfileDoctorById, getExtraInforDoctorById, getScheduleDoctorByDate, saveBulkScheduleDoctor, getDetailInforDoctor, saveDetailDoctorService, getAllDoctors, getTopDoctorHomeService, getAllcodeSevice, getAllUsers, createNewUserService, DeleteUserService, editUserService };
+export { postSendRemedy, getAllPatientForDoctor, getDetailClinicById, getAllClinic, creatNewClinic, getDetailSpecialtyById, getAllSpecialty, creatNewSpecialty, postVerifyBookAppointment, postPatientBookAppointment, getProfileDoctorById, getExtraInforDoctorById, getScheduleDoctorByDate, saveBulkScheduleDoctor, getDetailInforDoctor, saveDetailDoctorService, getAllDoctors, getTopDoctorHomeService, getAllcodeSevice, handleLoginApi, getAllUsers, createNewUserService, DeleteUserService, editUserService, handleLogoutApi };
 

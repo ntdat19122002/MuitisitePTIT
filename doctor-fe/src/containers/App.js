@@ -7,10 +7,13 @@ import { ToastContainer } from 'react-toastify';
 import { userIsAuthenticated, userIsNotAuthenticated } from '../hoc/authentication';
 import { path } from '../utils'
 import Home from '../routes/Home';
+import Login from './Auth/Login';
+import System from '../routes/System';
 import { CustomToastCloseButton } from '../components/CustomToast';
 import HomePage from "./HomePage/HomePage.js"
 import CustomScrollbars from "../components/CustomScrollbars";
 import DetailDoctor from './Patient/Doctor/DetailDoctor';
+import Doctor from '../routes/Doctor';
 import VerifyEmail from './Patient/VerifyEmail';
 import DetailSpecialty from './Patient/Specialty/DetailSpecialty';
 import DetailClinic from './Patient/Clinic/DetailClinic';
@@ -48,11 +51,17 @@ class App extends Component {
                             <CustomScrollbars style={{ height: '100vh', width: '100%' }}>
                                 <Switch>
                                     <Route path={path.HOME} exact component={(Home)} />
+                                    <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
+                                    <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
+                                    <Route path={'/doctor/'} component={userIsAuthenticated(Doctor)} />
+
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
                                     <Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
                                     <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
                                     <Route path={path.DETAIL_CLINIC} component={DetailClinic} />
+
+
                                 </Switch>
                             </CustomScrollbars>
                         </div>
