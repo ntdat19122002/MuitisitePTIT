@@ -9,6 +9,7 @@ import { LANGUAGES } from '../../../utils';
 import RemedyModal from './RemedyModal';
 import { toast } from 'react-toastify';
 import LoadingOverlay from 'react-loading-overlay';
+import HomeHeader from '../HomeHeader';
 
 
 class ManagePatient extends Component {
@@ -123,6 +124,9 @@ class ManagePatient extends Component {
 
         return (
             <>
+                <HomeHeader
+                    isShowBanner={false}
+                />
                 <LoadingOverlay
                     active={this.state.isShowLoading}
                     spinner

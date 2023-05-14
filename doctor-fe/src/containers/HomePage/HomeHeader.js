@@ -8,9 +8,21 @@ import { changeLanguageApp,processLogout } from '../../store/actions'
 import { withRouter } from 'react-router';
 
 class HomeHeader extends Component {
-    handleViewHome = () => {
+    handleViewManageInfo = () => {
         if (this.props.history) {
-            this.props.history.push(`/home`);
+            this.props.history.push(`/manage-info`);
+        }
+    }
+
+    handleViewManageSchedule = () => {
+        if (this.props.history) {
+            this.props.history.push(`/manage-schedule`);
+        }
+    }
+
+    handleViewManagePatient = () => {
+        if (this.props.history) {
+            this.props.history.push(`/manage-patient`);
         }
     }
 
@@ -22,7 +34,7 @@ class HomeHeader extends Component {
         this.props.processLogoutRedux()
     }
 
-    returnToHome = () => {
+    handleViewHome = () => {
         if (this.props.history) {
             this.props.history.push('/home');
         }
@@ -40,23 +52,18 @@ class HomeHeader extends Component {
                         <div onClick={()=> this.handleViewHome()} className="left-content">
                             <i className="fas fa-bars"></i>
                             {/* <div className="header-logo"></div> */}
-                            <img className="header-logo" src={logo} onClick={() => this.returnToHome()} />
+                            <img className="header-logo" src={logo} onClick={() => this.handleViewHome()} />
                         </div>
                         <div className="center-content">
-                            <div className="child-content">
-                                <div><b> <FormattedMessage id="homeheader.speciality" /></b></div>
-                                <div className="subs-title"><FormattedMessage id="homeheader.search-doctor" /></div>
-                            </div>
-
-                            <div className="child-content">
+                            <div onClick={()=> this.handleViewManageInfo()} className="child-content">
                                 <div><b><FormattedMessage id="homeheader.health-facility" /></b></div>
                                 <div className="sub-title"><FormattedMessage id="homeheader.select-room" /></div>
                             </div>
-                            <div className="child-content">
+                            <div onClick={()=> this.handleViewManageSchedule()} className="child-content">
                                 <div><b><FormattedMessage id="homeheader.doctor" /></b></div>
                                 <div className="sub-title"><FormattedMessage id="homeheader.select-doctor" /></div>
                             </div>
-                            <div className="child-content">
+                            <div onClick={()=> this.handleViewManagePatient()} className="child-content">
                                 <div><b><FormattedMessage id="homeheader.fee" /></b></div>
                                 <div className="sub-title"><FormattedMessage id="homeheader.check-health" /></div>
                             </div>
@@ -80,8 +87,6 @@ class HomeHeader extends Component {
                 {this.props.isShowBanner === true &&
                     <div className="home-header-banner">
                         <div className="content-up">
-                            <div className="title1"><FormattedMessage id="banner.title1" /></div>
-                            <div className="title2"><FormattedMessage id="banner.title2" /></div>
                             <div className="search">
                                 <i className="fas fa-search"></i>
                                 <input type="text" placeholder="Tìm chuyên khoa khám bệnh" />
