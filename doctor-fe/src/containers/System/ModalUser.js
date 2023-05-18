@@ -3,6 +3,8 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { emitter } from "../../utils/emitter";
+import './ModalUser.scss';
+
 class ModalUser extends Component {
 
     constructor(prop) {
@@ -65,8 +67,10 @@ class ModalUser extends Component {
 
     render() {
         return (
-            <Modal isOpen={this.props.isOpen} toggle={() => { this.toggle() }} className='abcClassName' size='lg'>
-                <ModalHeader toggle={() => { this.toggle() }}>Create a New User</ModalHeader>
+            <Modal isOpen={this.props.isOpen} toggle={() => { this.toggle() }} className='modal-container' size='lg'>
+                <ModalHeader toggle={() => { this.toggle() }}>
+                    <p className='title'>Create a New User</p>
+                </ModalHeader>
                 <ModalBody>
                     <div className='container'>
                         <div className='row'>

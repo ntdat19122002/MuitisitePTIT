@@ -120,7 +120,6 @@ class UserManage extends Component {
         return (
             <div className="users-container">
                 <div className='box'>
-
                     <ModalUser
                         isOpen={this.state.isOpenModalUser} // isOpen trong modelUser(component con) được nhận state isOpenModalUser(component cha)
                         toggleOut={this.handleAddNewUser}
