@@ -1,6 +1,5 @@
 export const path = {
     HOME: '/',
-    HOMEPAGE: '/home',
     LOGIN: '/login',
     LOG_OUT: '/logout',
     SYSTEM: '/system',
@@ -8,9 +7,6 @@ export const path = {
     VERIFY_EMAIL_BOOKING: '/verify-booking',
     DETAIL_SPECIALTY: '/detail-specialty/:id',
     DETAIL_CLINIC: '/detail-clinic/:id',
-    MANAGE_INFO:'/manage-info',
-    MANAGE_SCHEDULE:'/manage-schedule',
-    MANAGE_PATIENT:'/manage-patient',
 };
 
 export const LANGUAGES = {

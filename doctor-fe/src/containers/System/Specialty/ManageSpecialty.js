@@ -84,6 +84,8 @@ class ManageSpecialty extends Component {
     render() {
         return (
             <div className="manage-specialty-container">
+                <div className='box'>
+
                 <div className="ms-title">Quản lý chuyên khoa</div>
 
                 <div className="add-new-specialty row">
@@ -116,6 +118,7 @@ class ManageSpecialty extends Component {
                         >Save</button>
 
                     </div>
+                </div>
                 </div>
             </div>
         );

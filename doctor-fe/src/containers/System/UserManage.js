@@ -27,7 +27,7 @@ class UserManage extends Component {
 
 
     getAllUsersFromReact = async () => {
-        let token = 'ALL';
+        let token = this.props.userInfo.token;
         // this.setState({
         //     arrUsers: user
         // })
@@ -119,57 +119,60 @@ class UserManage extends Component {
         let arrUsers = this.state.arrUsers;
         return (
             <div className="users-container">
-                <ModalUser
-                    isOpen={this.state.isOpenModalUser} // isOpen trong modelUser(component con) được nhận state isOpenModalUser(component cha)
-                    toggleOut={this.handleAddNewUser}
-                    createNewUser={this.createNewUser}
-                />
-                {
-                    this.state.isOpenModalEditUse &&
-                    <ModalEditUser
-                        isOpen={this.state.isOpenModalEditUse}
-                        toggleOut={this.toggleUserEditModal}
-                        currentUser={this.state.userEdit}
-                        editUser={this.doEditUser}
+                <div className='box'>
+
+                    <ModalUser
+                        isOpen={this.state.isOpenModalUser} // isOpen trong modelUser(component con) được nhận state isOpenModalUser(component cha)
+                        toggleOut={this.handleAddNewUser}
+                        createNewUser={this.createNewUser}
                     />
-                }
-                <div className="text-center">CRUD with React</div>
-                <div className='mx-1'>
-                    <button className='btn btn-primary px-5' onClick={() => this.handleAddNewUser()}>Add new users</button>
-                </div>
-                <div className='users-table mt-3 mx-1'>
-                    <table id="customers">
-                        <tbody>
-                            <tr>
-                                <th>Email</th>
-                                <th>First name</th>
-                                <th>Last name</th>
-                                <th>Address</th>
-                                <th>Actions</th>
-                            </tr>
-                            {arrUsers && arrUsers.map((item, index) => {
-                                // console.log('check map', item, index)
-                                return (
-                                    <tr>
-                                        <td>{item.email}</td>
-                                        <td>{item.firstName}</td>
-                                        <td>{item.lastName}</td>
-                                        <td>{item.address}</td>
-                                        <td>
-                                            <button className='btn-edit'
-                                                onClick={() => this.handleEditUser(item)}
-                                            ><i className="fas fa-pencil-alt"></i></button>
-                                            <button className='btn-delete'
-                                                onClick={() => { this.handleDeleteUser(item) }}
-                                            ><i className="fas fa-trash"></i></button>
-                                        </td>
-                                    </tr>
+                    {
+                        this.state.isOpenModalEditUse &&
+                        <ModalEditUser
+                            isOpen={this.state.isOpenModalEditUse}
+                            toggleOut={this.toggleUserEditModal}
+                            currentUser={this.state.userEdit}
+                            editUser={this.doEditUser}
+                        />
+                    }
+                    <div className="text-center">CRUD with React</div>
+                    <div className='mx-1'>
+                        <button className='btn btn-primary px-5' onClick={() => this.handleAddNewUser()}>Add new users</button>
+                    </div>
+                    <div className='users-table mt-3 mx-1'>
+                        <table id="customers">
+                            <tbody>
+                                <tr>
+                                    <th>Email</th>
+                                    <th>First name</th>
+                                    <th>Last name</th>
+                                    <th>Address</th>
+                                    <th>Actions</th>
+                                </tr>
+                                {arrUsers && arrUsers.map((item, index) => {
+                                    // console.log('check map', item, index)
+                                    return (
+                                        <tr>
+                                            <td>{item.email}</td>
+                                            <td>{item.firstName}</td>
+                                            <td>{item.lastName}</td>
+                                            <td>{item.address}</td>
+                                            <td>
+                                                <button className='btn-edit'
+                                                    onClick={() => this.handleEditUser(item)}
+                                                ><i className="fas fa-pencil-alt"></i></button>
+                                                <button className='btn-delete'
+                                                    onClick={() => { this.handleDeleteUser(item) }}
+                                                ><i className="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
 
 
-                                )
-                            })}
-                        </tbody>
-                    </table>
+                                    )
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         );

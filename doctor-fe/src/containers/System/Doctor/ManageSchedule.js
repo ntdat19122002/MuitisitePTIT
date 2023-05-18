@@ -126,50 +126,53 @@ class ManageSchedule extends Component {
 
         return (
             <div className='manage-schedule-container'>
-                <div className='m-s-title'>
-                    <FormattedMessage id='manage-schedule.title' />
-                </div>
-                <div className='container'>
-                    <div className='row'>
-                        <div className='col-6 form-group'>
-                            <label><FormattedMessage id='manage-schedule.choose-doctor' /></label>
-                            <Select
-                                value={this.state.selectedDoctor}
-                                onChange={this.handleChangeSelect}
-                                options={this.state.listDoctors}
-                            />
-                        </div>
-                        <div className='col-6 form-group'>
-                            <label><FormattedMessage id='manage-schedule.choose-date' /></label>
-                            <DatePicker
-                                onChange={this.handleOnchangeDatePicker}
-                                className='form-control'
-                                value={this.state.currentDate}
-                                minDate={yesterday}
-                            />
-                        </div>
-                        <div className='col-12 pick-hour-container'>
-                            {rangeTime && rangeTime.length > 0 &&
-                                rangeTime.map((item, index) => {
-                                    return (
-                                        <button
-                                            className={item.isSelected === true ? "btn btn-schedule active" : "btn btn-schedule"}
-                                            key={index}
-                                            onClick={() => this.handleClickBtnTime(item)}
+                <div className='box'>
 
-                                        >
-                                            {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
-                                        </button>
+                    <div className='m-s-title'>
+                        <FormattedMessage id='manage-schedule.title' />
+                    </div>
+                    <div className='container'>
+                        <div className='row'>
+                            <div className='col-6 form-group'>
+                                <label><FormattedMessage id='manage-schedule.choose-doctor' /></label>
+                                <Select
+                                    value={this.state.selectedDoctor}
+                                    onChange={this.handleChangeSelect}
+                                    options={this.state.listDoctors}
+                                />
+                            </div>
+                            <div className='col-6 form-group'>
+                                <label><FormattedMessage id='manage-schedule.choose-date' /></label>
+                                <DatePicker
+                                    onChange={this.handleOnchangeDatePicker}
+                                    className='form-control'
+                                    value={this.state.currentDate}
+                                    minDate={yesterday}
+                                />
+                            </div>
+                            <div className='col-12 pick-hour-container'>
+                                {rangeTime && rangeTime.length > 0 &&
+                                    rangeTime.map((item, index) => {
+                                        return (
+                                            <button
+                                                className={item.isSelected === true ? "btn btn-schedule active" : "btn btn-schedule"}
+                                                key={index}
+                                                onClick={() => this.handleClickBtnTime(item)}
 
-                                    )
-                                })}
-                        </div>
-                        <div className='col-12'>
-                            <button className='btn btn-primary btn-save-schedule'
-                                onClick={() => this.handleSaveSchedule()}
-                            >
-                                <FormattedMessage id='manage-schedule.save' />
-                            </button>
+                                            >
+                                                {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+                                            </button>
+
+                                        )
+                                    })}
+                            </div>
+                            <div className='col-12'>
+                                <button className='btn btn-primary btn-save-schedule'
+                                    onClick={() => this.handleSaveSchedule()}
+                                >
+                                    <FormattedMessage id='manage-schedule.save' />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

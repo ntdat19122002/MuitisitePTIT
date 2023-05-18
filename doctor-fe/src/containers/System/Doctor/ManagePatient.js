@@ -131,7 +131,7 @@ class ManagePatient extends Component {
 
                     <div className="manage-patient-container" >
                         <div className="m-p-title">
-                            Quán ly bệnh nhân khám bênh
+                            Quản lý bệnh nhân khám bệnh
                         </div>
                         <div className="manage-patient-body row">
                             <div className="col-4 form-group">

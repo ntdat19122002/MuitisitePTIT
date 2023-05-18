@@ -9,6 +9,8 @@ import { LANGUAGES, USER_ROLE } from '../../utils';
 import { FormattedMessage } from 'react-intl';
 import { adminMenu, doctorMenu } from './menuApp';
 import _ from 'lodash';
+import logo from '../../assets/logo.svg'
+
 
 class Header extends Component {
     constructor(props) {
@@ -42,6 +44,7 @@ class Header extends Component {
 
         return (
             <div className="header-container">
+                <img className='header-logo' src={logo} />
                 {/* thanh navigator */}
                 <div className="header-tabs-container">
                     {/* <Navigator menus={adminMenu} /> */}
@@ -50,7 +53,7 @@ class Header extends Component {
                 <div className="languages">
                     <span className="welcome">
                         <FormattedMessage id="homeheader.welcome" />
-                        {userInfo && userInfo.user.firstName ? userInfo.user.firstName : ''} !
+                        {userInfo && userInfo.user.firstName ? userInfo.user.firstName : ''}!
                     </span>
 
                     <span className={language === LANGUAGES.VI ? "language-vi active" : "language-vi"} onClick={() => this.handleChangeLanguage(LANGUAGES.VI)}>VN</span>

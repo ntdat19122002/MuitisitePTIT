@@ -2,8 +2,11 @@ import React, { Component, Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-
 import './Navigator.scss';
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+</style>
 
 class MenuGroup extends Component {
 
@@ -13,6 +16,7 @@ class MenuGroup extends Component {
             <li className="menu-group">
                 <div className="menu-group-name">
                     <FormattedMessage id={name} />
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
                 </div>
                 <ul className="menu-list list-unstyled">
                     {children}
@@ -48,10 +52,10 @@ class Menu extends Component {
                         </div>
                     </Fragment>
                 ) : (
-                        <Link to={link} className="menu-link" onClick={onLinkClick}>
-                            <FormattedMessage id={name} />
-                        </Link>
-                    )}
+                    <Link to={link} className="menu-link" onClick={onLinkClick}>
+                        <FormattedMessage id={name} />
+                    </Link>
+                )}
             </li>
         );
     }

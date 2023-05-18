@@ -10,16 +10,8 @@ import Home from '../routes/Home';
 import Login from './Auth/Login';
 import System from '../routes/System';
 import { CustomToastCloseButton } from '../components/CustomToast';
-import HomePage from "./HomePage/HomePage.js"
 import CustomScrollbars from "../components/CustomScrollbars";
-import DetailDoctor from './Patient/Doctor/DetailDoctor';
 import Doctor from '../routes/Doctor';
-import VerifyEmail from './Patient/VerifyEmail';
-import DetailSpecialty from './Patient/Specialty/DetailSpecialty';
-import DetailClinic from './Patient/Clinic/DetailClinic';
-import ManageInfo from './HomePage/Doctor/ManageInfo';
-import ManageSchedule from './HomePage/Doctor/ManageSchedule';
-import ManagePatient from './HomePage/Doctor/ManagePatient';
 
 
 
@@ -57,16 +49,6 @@ class App extends Component {
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                     <Route path={'/doctor/'} component={userIsAuthenticated(Doctor)} />
-
-                                    <Route path={path.HOMEPAGE} component={userIsAuthenticated(HomePage)} />
-                                    <Route path={path.DETAIL_DOCTOR} component={userIsAuthenticated(DetailDoctor)} />
-                                    <Route path={path.DETAIL_SPECIALTY} component={userIsAuthenticated(DetailSpecialty)} />
-                                    <Route path={path.VERIFY_EMAIL_BOOKING} component={userIsAuthenticated(VerifyEmail)} />
-                                    <Route path={path.DETAIL_CLINIC} component={userIsAuthenticated(DetailClinic)} />
-                                    <Route path={path.MANAGE_INFO} component={userIsAuthenticated(ManageInfo)} />
-                                    <Route path={path.MANAGE_SCHEDULE} component={userIsAuthenticated(ManageSchedule)} />
-                                    <Route path={path.MANAGE_PATIENT} component={userIsAuthenticated(ManagePatient)} />
-
 
                                 </Switch>
                             </CustomScrollbars>

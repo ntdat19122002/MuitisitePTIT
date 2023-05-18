@@ -1,52 +1,66 @@
 @import "../../styles/common.scss";
 
 .header-container {
+    border-bottom: 2px solid #d7d7d7;
+    padding: 5px 0;
     z-index: 99;
     display: flex;
-    justify-content: space-between;
-    background-color: $colormain;
-    color: $common-text-color;
-    height: 40px;
+    justify-content: space-evenly;
+    background-color: $common-text-color;
+    color: black;
+    height: 50px;
     position: relative;
+
+    .header-logo {
+        width: 150px;
+        height: auto;
+    }
+
     .btn-logout {
-        color: $common-text-color;
+        color: #333;
         line-height: 40px;
         height: 40px;
         padding: 0 10px;
+        transition: 0.5s;
+
         &:hover {
             background-color: darken($colormain, 5);
+            color: $common-text-color;
         }
+
         i {
             font-size: $base-size + 1px;
         }
     }
-    .languages{
-        .welcome{
+
+    .languages {
+        .welcome {
             margin-right: 10px;
         }
-        
-        .language-en{
+
+        .language-en {
             margin-right: 15px;
-            margin-left: 10p;
+            padding-left: 5px;
             cursor: pointer;
-    
-    
-            &.active{
+            border-left: 0.5px solid #d7d7d7;
+
+            &.active {
                 opacity: 1;
-                color: #30d663;
+                color: #49bce2;
             }
         }
-    
-    
-        .language-vi{
+
+
+        .language-vi {
             cursor: pointer;
-            margin-right: 10px;
-    
-            &.active{
+            margin-right: 5px;
+
+            &.active {
                 opacity: 1;
-                color: orange;
+                color: #49bce2;
             }
         }
     }
-    
+
+
 }

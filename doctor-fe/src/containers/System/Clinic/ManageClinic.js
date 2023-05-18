@@ -86,43 +86,46 @@ class ManageClinic extends Component {
     render() {
         return (
             <div className="manage-specialty-container">
-                <div className="ms-title">Quản lý phòng khám</div>
+                <div className='box'>
 
-                <div className="add-new-specialty row">
-                    <div className="col-6 form-group">
-                        <label> Tên phòng khám</label>
-                        <input className="form-control" type="text" value={this.state.name}
-                            onChange={(event) => this.handleOnChangeInput(event, 'name')}
-                        />
+                    <div className="ms-title">Quản lý phòng khám</div>
 
-                    </div>
+                    <div className="add-new-specialty row">
+                        <div className="col-6 form-group">
+                            <label> Tên phòng khám</label>
+                            <input className="form-control" type="text" value={this.state.name}
+                                onChange={(event) => this.handleOnChangeInput(event, 'name')}
+                            />
 
-                    <div className="col-6 form-group">
-                        <label>Ảnh phòng khám</label>
-                        <input className="form-control-file" type="file"
-                            onChange={(event) => this.handleOnChangeImage(event)}
-                        />
-                    </div>
-                    <div className='col-6 form-group'>
-                        <label>Địa chỉ phòng khám</label>
-                        <input className="form-control" type="text" value={this.state.address}
-                            onChange={(event) => this.handleOnChangeInput(event, 'address')} />
-                    </div>
+                        </div>
 
-                    <div className="col-12">
-                        <MdEditor
-                            style={{ height: '300px' }}
-                            renderHTML={text => mdParser.render(text)}
-                            onChange={this.handleEditorChange}
-                            value={this.state.descriptionMarkdown}
-                        />
-                    </div>
-                    <div className="col-12">
-                        <button className="btn-save-specialty"
-                            onClick={() => this.handleSaveNewClinic()}
+                        <div className="col-6 form-group">
+                            <label>Ảnh phòng khám</label>
+                            <input className="form-control-file" type="file"
+                                onChange={(event) => this.handleOnChangeImage(event)}
+                            />
+                        </div>
+                        <div className='col-6 form-group'>
+                            <label>Địa chỉ phòng khám</label>
+                            <input className="form-control" type="text" value={this.state.address}
+                                onChange={(event) => this.handleOnChangeInput(event, 'address')} />
+                        </div>
 
-                        >Save</button>
+                        <div className="col-12">
+                            <MdEditor
+                                style={{ height: '300px' }}
+                                renderHTML={text => mdParser.render(text)}
+                                onChange={this.handleEditorChange}
+                                value={this.state.descriptionMarkdown}
+                            />
+                        </div>
+                        <div className="col-12">
+                            <button className="btn-save-specialty"
+                                onClick={() => this.handleSaveNewClinic()}
 
+                            >Save</button>
+
+                        </div>
                     </div>
                 </div>
             </div>
